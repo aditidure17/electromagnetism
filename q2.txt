@@ -1,0 +1,260 @@
+%QUESTION 2.1%
+%%%%%diagram (a)%%%%%%
+%%%%%%%Electric Field%%%%%%
+
+%constants
+k = 9 * 10^9;
+
+%charges
+q1 = 2;
+q2 = -3;
+q3 = 3;
+
+%creating grid
+[x, y] = meshgrid(-6:0.5:6, -6:0.5:6);
+
+%value of x and y component of Electric Field
+Ex = k * q1 * x ./ (x.^2 + (y - 3).^2).^(3/2) + ...
+     k * q2 * (x + 2) ./ ((x + 2).^2 + y.^2).^(3/2) + ...
+     k * q3 * (x - 2) ./ ((x - 2).^2 + y.^2).^(3/2);
+
+Ey = k * q1 * (y - 3) ./ (x.^2 + (y - 3).^2).^(3/2) + ...
+     k * q2 * y ./ ((x + 2).^2 + y.^2).^(3/2) + ...
+     k * q3 * y ./ ((x - 2).^2 + y.^2).^(3/2);
+
+%plotting
+figure;
+quiver(x, y, Ex, Ey, 'Color', 'r');
+xlabel('x');
+ylabel('y');
+title('Electric Field');
+
+---------
+
+%constants and charges
+k = 9 * 10^9;
+q1 = 2;
+q2 = -2;
+q3 = 3;
+q4 = 2;
+
+% Defining grid
+[x, y] = meshgrid(-6:0.5:6, -6:0.5:6);
+
+% Calculating electric field components
+Ex = k * q1 * (x - 3) ./ ((x - 3).^2 + (y - 3).^2).^(3/2) + ...
+     k * q2 * (x + 3) ./ ((x + 3).^2 + (y - 3).^2).^(3/2) + ...
+     k * q3 * (x + 3) ./ ((x + 3).^2 + (y + 3).^2).^(3/2) + ...
+     k * q4 * (x - 3) ./ ((x - 3).^2 + (y + 3).^2).^(3/2);
+
+Ey = k * q1 * (y - 3) ./ ((x - 3).^2 + (y - 3).^2).^(3/2) + ...
+     k * q2 * (y - 3) ./ ((x + 3).^2 + (y - 3).^2).^(3/2) + ...
+     k * q3 * (y + 3) ./ ((x + 3).^2 + (y + 3).^2).^(3/2) + ...
+     k * q4 * (y + 3) ./ ((x - 3).^2 + (y + 3).^2).^(3/2);
+
+% Plotting
+figure;
+quiver(x, y, Ex, Ey, 'Color', 'r');
+xlabel('x');
+ylabel('y');
+title('Electric Field');
+-------
+
+------
+%constants and charges
+k = 9 * 10 ^ 9;
+q1 = 2;
+q2 = -3;
+q3 = 3;
+
+%initiating values of x and y
+x = linspace(-6, 6, 100);
+y = linspace(-6, 6, 100);
+
+%creating grid
+[X, Y] = meshgrid(x, y);
+
+%distances
+r1 = sqrt((X).^2+(Y-3).^2);
+r2 = sqrt((X+2).^2+(Y).^2);
+r3 = sqrt((X-2).^2+(Y).^2);
+
+%potential formula
+Z = k*(q1./r1 + q2./r2 + q3./r3);
+
+% plotting
+surf(X, Y, Z);
+title('Potential');
+xlabel('X');
+ylabel('Y');
+zlabel('Electric Potential');
+colorbar();
+
+-----
+%charges and constants
+k = 9 * 10 ^ 9;
+q1 = 2;
+q2 = -2;
+q3 = 3;
+q4 = 2;
+
+%init. values of x and y
+x = linspace(-6, 6, 100);
+y = linspace(-6, 6, 100);
+
+%creating grid
+[X, Y] = meshgrid(x, y);
+
+%distances
+r1 = sqrt((X-3).^2+(Y-3).^2);
+r2 = sqrt((X+3).^2+(Y-3).^2);
+r3 = sqrt((X+3).^2+(Y+3).^2);
+r4 = sqrt((X-3).^2+(Y+3).^2);
+
+%Potential formula
+Z = k*(q1./r1 + q2./r2 + q3./r3 + q4./r4);
+
+% Plotting
+surf(X, Y, Z);
+title('Potential');
+xlabel('X');
+ylabel('Y');
+zlabel('Electric Potential');
+------
+
+
+-----
+
+%charges, distances and constants
+k = 9*10^9;
+q1 = 2;
+q2 = 3;
+q3 = -3;
+r1 = 4;
+r2 = sqrt(13);
+r3 = sqrt(13);
+
+%electrostatic energy formula
+Z = k*(q1*q2/r3 + q2*q3/r1 + q1*q3/r2);
+
+% defining range of X and Y
+[X, Y] = meshgrid(-6:0.1:6, -6:0.1:6);
+
+%creating Z matrix
+Z_matrix = ones(size(X)) * Z;
+
+% Plotting
+surf(X, Y, Z_matrix);
+xlabel('X-axis');
+ylabel('Y-axis');
+zlabel('Electrostatic Energy');
+title('Electrostatic Energy');
+
+-------
+%charges, distances, and constants
+k = 9*10^9;
+q1 = 2;
+q2 = -2;
+q3 = 3;
+q4 = 2;
+r1 = 4;
+r2 = 4*sqrt(2);
+r3 = 4;
+r4 = 4;
+r5 = 4*sqrt(2);
+r6 = 4;
+
+% Electrostatic energy formula
+Z = k*(q1*q2/r1 + q1*q3/r2 + q1*q4/r3 + q2*q3/r4 + q2*q4/r5 + q3*q4/r6);
+
+% Defining range for X and Y
+[X, Y] = meshgrid(-6:0.1:6, -6:0.1:6);
+
+% creating Z matrix
+Z_matrix = ones(size(X)) * Z;
+
+% Plotting
+surf(X, Y, Z_matrix);
+xlabel('X-axis');
+ylabel('Y-axis');
+zlabel('Z-axis');
+title('Simple 3D Plot with Constant Z Value');
+------
+
+------
+
+k = 9*10^9;
+q = 1; 
+p = [0, 0, 0]; 
+
+r = 1; 
+theta = linspace(0, pi, 100);
+phi = linspace(0, 2*pi, 100);
+[theta, phi] = meshgrid(theta, phi);
+x = p(1) + r * sin(theta) .* cos(phi);
+y = p(2) + r * sin(theta) .* sin(phi);
+z = p(3) + r * cos(theta);
+
+d = sqrt((x - p(1)).^2 + (y - p(2)).^2 + (z - p(3)).^2);
+Ex = k * q * (x - p(1)) ./ d.^3;
+Ey = k * q * (y - p(2)) ./ d.^3;
+Ez = k * q * (z - p(3)) ./ d.^3;
+
+dA = r^2 * sin(theta) * (2*pi/100) * (pi/100);
+flux = sum(sum(Ex .* dA(1, :))) + sum(sum(Ey .* dA(1, :))) + sum(sum(Ez .* dA(1, :)));
+
+qen = q;
+
+figure;
+quiver3(x, y, z, Ex, Ey, Ez);
+hold on;
+
+surf(x, y, z, 'FaceAlpha', 0.3);
+shading interp;
+axis equal;
+xlabel('X');
+ylabel('Y');
+zlabel('Z');
+title('Gauss Law');
+
+scatter3(p(1), p(2), p(3), 'filled', 'MarkerEdgeColor', 'k', 'MarkerFaceColor', 'r');
+text(p(1), p(2), p(3), '   Charge', 'HorizontalAlignment', 'left');
+
+------
+
+[x, y] = meshgrid(-2:0.2:2, -2:0.2:2);
+v = sin(x).*cos(y);
+
+[dx, dy] = gradient(v);
+
+ex = -dx;
+ey = -dy;
+
+figure;
+contour(x, y, v);
+title('Potential');
+xlabel('x');
+ylabel('y');
+colorbar;
+
+figure;
+quiver(x, y, ex, ey);
+title('Electric Field e = -del v');
+xlabel('x');
+ylabel('y');
+axis equal;
+------
+x = linspace(-6, 6, 2000);
+y = linspace(-6, 6, 2000);
+[X, Y] = meshgrid(x, y);
+r = sqrt(X.^2 + Y.^2); 
+Ex = 9 * X ./ r.^3; 
+Ey = 9 * Y ./ r.^3; 
+[Curl_E,~] = curl(X, Y, Ex, Ey);
+surf(x, y, Curl_E, "LineStyle", "none");
+zlim([-1, 1]);
+clim([-1, 1]);
+colorbar;
+xlabel('x');
+ylabel('y');
+zlabel("curl(E)");
